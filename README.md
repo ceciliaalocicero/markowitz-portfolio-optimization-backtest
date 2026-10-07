@@ -17,7 +17,7 @@ A fund manager can choose among eight stocks with no transaction fees. Which lon
 | # | Finding | Evidence |
 |---|---------|----------|
 | 1 | **In hindsight, the optimizer concentrates in a few winners.** The full-sample tangency portfolio puts 90% in AMZN (43.5%), TSLA (29.7%) and AAPL (16.4%), with an annualized return of 39.9%, volatility of 27.4% and Sharpe ratio of 1.46. $1 grows to about $22 over 2012–2020. This is an **in-sample** result: the weights were chosen knowing the outcomes. | 10,000 random long-only portfolios; risk-free rate = 0 |
-| 2 | **Out of sample, risk-adjusted performance drops by about a third.** Weights estimated on 2012–2015 promised a 37.7% return at 22.9% volatility (Sharpe 1.65). Applied to 2016–2020 they delivered 32.7% at 29.1% volatility (Sharpe 1.12). | Train 2012–2015, test 2016–Aug 2020 |
+| 2 | **Out of sample, risk-adjusted performance drops by about a third.** Weights estimated on 2012–2015 promised a 37.7% return at 22.9% volatility (Sharpe 1.65). Applied to 2016–2020 they delivered 32.7% at 29.1% volatility (Sharpe 1.12). In absolute terms $1 still grew 3.7×, vs. 1.6× for the S&P 500. | Train 2012–2015, test 2016–Aug 2020 |
 | 3 | **Optimal weights are unstable.** Re-optimizing on 2016–2020 alone changes the allocation sharply: BA falls from 25.2% to 1.4%, while AMZN rises from 37.4% to 62.4%. | Period-by-period tangency weights |
 | 4 | **Annual re-optimization on one year of data underperforms naive 1/N.** Sharpe 0.59 for the re-optimized strategy, vs. 0.74 for the S&P 500 and 1.04 for equal weights. $1 grows to 2.36, 2.34 and 4.79 respectively. The optimizer put 33–77% of the portfolio in a single stock each year, and the top holding kept changing. | 8 annual re-optimizations, 2013–2020 |
 | 5 | **Diversification potential is real but uneven.** Correlation with the S&P 500 ranges from 0.39 (TSLA) to 0.70 (IBM); AMZN–BA is only 0.27, while MGM–BA is 0.55 (shared cyclical exposure). All return distributions are fat-tailed. | Daily-return correlations and histograms |
@@ -97,7 +97,7 @@ markowitz-portfolio-optimization-backtest/
 
 ## Technologies
 
-Python · pandas · NumPy · SciPy (SLSQP optimization) · Matplotlib · seaborn · Plotly · Jupyter
+Python 3.13 · pandas · NumPy · SciPy (SLSQP optimization) · Matplotlib · seaborn · Plotly · Jupyter
 
 ## Reproducing the analysis
 
@@ -105,12 +105,14 @@ Python · pandas · NumPy · SciPy (SLSQP optimization) · Matplotlib · seaborn
 git clone https://github.com/ceciliaalocicero/markowitz-portfolio-optimization-backtest.git
 cd markowitz-portfolio-optimization-backtest
 python -m venv .venv
-.venv\Scripts\activate          # macOS/Linux: source .venv/bin/activate
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
 1. Obtain the price file as described in [`data/README.md`](data/README.md) and save it as `data/raw/Data_PCLab1_Stock.csv`.
-2. Run `jupyter lab`, open `notebooks/markowitz_portfolio_optimization.ipynb`, and select *Run → Run All Cells*.
+2. Launch Jupyter (`jupyter lab`) and open `notebooks/markowitz_portfolio_optimization.ipynb`.
+3. Check the file path and parameters in the **Setup and configuration** cell.
+4. Run all cells (*Run → Run All Cells*).
 
 Random portfolios use a fixed seed, so results are reproducible with the original file. A file rebuilt from another source will give slightly different numbers.
 
@@ -128,7 +130,7 @@ Random portfolios use a fixed seed, so results are reproducible with the origina
 
 Team project by **Cecilia Lo Cicero, Sara Pulidori, Alissa Sharuda and Nico Visentin**.
 
-Repository prepared and maintained by **Cecilia Lo Cicero**. *My contributions: I contributed to every part of the project, from data preparation and descriptive analysis to the efficient frontier, the out-of-sample test, the annual re-optimization and the write-up.*
+All four authors worked jointly on every part of the analysis. Repository prepared and maintained by **Cecilia Lo Cicero**.
 
 Developed as coursework for *Finance with Big Data* (MSc, Bocconi University). The assignment framework was provided by the course; the analysis, extensions and write-up are the team's own.
 

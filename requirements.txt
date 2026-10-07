@@ -1,3 +1,4 @@
+# Tested with Python 3.13
 numpy>=1.26
 pandas>=2.2
 matplotlib>=3.8
