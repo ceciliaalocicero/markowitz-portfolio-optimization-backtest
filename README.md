@@ -48,7 +48,7 @@ A fund manager can choose among eight stocks with no transaction fees. Which lon
 
 ![Correlation heatmap](figures/04_return_correlation_heatmap.png)
 
-All 11 figures are in [`figures/`](figures/). The notebook also contains an interactive Plotly histogram, which GitHub does not render; open the notebook in [nbviewer](https://nbviewer.org/github/ceciliaalocicero/markowitz-out-of-sample-test/blob/main/notebooks/markowitz_portfolio_optimization.ipynb) to see it.
+All 11 figures are in [`figures/`](figures/). The notebook also contains an interactive Plotly histogram, which GitHub does not render; open the notebook in [nbviewer](https://nbviewer.org/github/ceciliaalocicero/markowitz-portfolio-optimization-backtest/blob/main/notebooks/markowitz_portfolio_optimization.ipynb) to see it.
 
 ---
 
@@ -81,7 +81,7 @@ Prices are split-adjusted but not dividend-adjusted, so returns are price return
 ## Repository structure
 
 ```
-markowitz-out-of-sample-test/
+markowitz-portfolio-optimization-backtest/
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
@@ -102,8 +102,8 @@ Python · pandas · NumPy · SciPy (SLSQP optimization) · Matplotlib · seaborn
 ## Reproducing the analysis
 
 ```bash
-git clone https://github.com/ceciliaalocicero/markowitz-out-of-sample-test.git
-cd markowitz-out-of-sample-test
+git clone https://github.com/ceciliaalocicero/markowitz-portfolio-optimization-backtest.git
+cd markowitz-portfolio-optimization-backtest
 python -m venv .venv
 .venv\Scripts\activate          # macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
